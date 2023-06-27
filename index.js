@@ -14,7 +14,7 @@ dbConection();
 app.use(cors());
 
 //Directorio publico
-app.use(express.static('/public'));
+app.use(express.static('public'));
 
 //Lectura y parseo del body
 app.use(express.json() );
@@ -22,6 +22,9 @@ app.use(express.json() );
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/events', require('./routes/events'))
+
+
+app.use(express.static(__dirname + '/public'));
 
 
 //Escuchar aplicaciones
