@@ -26,6 +26,10 @@ app.use('/api/events', require('./routes/events'))
 
 app.use(express.static(__dirname + '/public'));
 
+app.get('*', (req,res) => {
+    res.sendFile(__dirname + '/public/index.html')
+})
+
 
 //Escuchar aplicaciones
 app.listen(process.env.PORT, () => {
